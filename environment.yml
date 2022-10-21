@@ -1,0 +1,12 @@
+name: airlift-solution
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python==3.9
+  - pip==21.3.1
+
+  - pip:
+      # For debugging purposes, you may want to comment out the following line and instead install the airlift package
+      # from source as described in the README at https://github.com/airlift-challenge/airlift
+      - git+https://github.com/airlift-challenge/airlift
