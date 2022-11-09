@@ -136,4 +136,4 @@ replay_buffers/*
 
 
 scenarios/
-
+*.csv
