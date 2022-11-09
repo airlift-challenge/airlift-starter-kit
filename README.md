@@ -55,7 +55,7 @@ For more information, you can view the following sections in the [documentation]
 ## 3) Test your solution
 
 ### Evaluate your solution against the test set
-Download the [test scenarios](https://airlift-challenge.github.io/resources/test_scenarios.zip) and unzip the contents into the `/scenarios` folder.
+Download the [test scenarios](https://airlift-challenge.github.io/scenarios/scenarios_test.zip) and unzip the contents into the `/scenarios` folder.
 Then, perform the evaluation by running:
 ```bash
 $ ./eval.sh
@@ -70,7 +70,7 @@ The evaluator will output two csv files:
 * *`reakdown_results.csv`.* Provides details regarding each episode.
 * *`results_summary.csv`.* Provides a summary of the overall evaluation and score.
 
-We also provide a set of simpler [development scenarios](https://airlift-challenge.github.io/resources/dev_scenarios.zip) for building and debugging your agent.
+We also provide a set of simpler [development scenarios](https://airlift-challenge.github.io/scenarios/scenarios_dev.zip) for building and debugging your agent.
 You may build your own set of evaluation scenarios as well. See [Generating Scenarios page](https://airlift-challenge.github.io/chapters/ch5_gen/main.html) for more information.
 
 
