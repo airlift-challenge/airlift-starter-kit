@@ -11,7 +11,7 @@ This repository provides a template for you to create your own solution, test it
 # Important links
 * For more information about the competition: see the [documentation](https://airlift-challenge.github.io/).
 * The simulator can be found [here](https://github.com/airlift-challenge/airlift)
-* For submissions and to participate in the discussion board: see the [competition platform on CodaLab](https://codalab.lisn.upsaclay.fr/competitions/0000)
+* For submissions and to participate in the discussion board: see the [competition platform on CodaLab][codalab]
 
 # Getting Started
 
@@ -32,7 +32,7 @@ $ conda env create -f environment.yml
 $ conda activate airlift-solution
 ```
 Optionally, you may want to install the core airlift simulator code from source to allow for easier debugging.
-This can be done by commenting out the simulator pip requirement in [environment.yml](environmnent.yml), and installing from source aa described in the [Airlift Simulator README](https://github.com/airlift-challenge/airlift/README.md#Installing-with-pip). 
+This can be done by commenting out the simulator pip requirement in [environment.yml](environment.yml), and installing from source aa described in the [Airlift Simulator README](https://github.com/airlift-challenge/airlift/blob/main/README.md#installing-with-pip). 
 
 ## 2) Write your solution code
 
@@ -43,14 +43,14 @@ You need to fill in two methods:
 It is important that your solution only rely on the information found in the observation and not attempt to access internal environment attributes. 
 
 The starter kit provides an [example random agent solution](solution/mysolution.py) which you can modify to produce your solution.
-You may also want to reference our [baseline](https://github.com/airlift-challenge/airlift/solution/baselines.py) which implements a simple agent that follows a shortest path.
+You may also want to reference our [baseline](https://github.com/airlift-challenge/airlift/blob/main/airlift/solutions/baselines.py) which implements a simple agent that follows a shortest path.
 
 For more information, you can view the following sections in the [documentation](https://airlift-challenge.github.io/).
-* *[Model](sec_model)*. Formulates the model implemented by the simulator.
-* *[Interface](sec_interface)*. Provides information regarding the observation and action spaces, as well as rewards and metrics.
-* *Essential API*. Documents key classes and methods you may need to interact with.
-* *[Solutions](sec_solutions)*. Provides some background on previous solutions to the airlift and other related problems.
-* *Simulator Code Documentation*. Although you do not need to understand the internals of the simulator to write a solution, it could help with debugging.
+* *[Model](https://airliftchallenge.com/chapters/ch2_model/main.html)*. Formulates the model implemented by the simulator.
+* *[Interface](https://airliftchallenge.com/chapters/ch3_interface/main.html)*. Provides information regarding the observation and action spaces, as well as rewards and metrics.
+* *[Essential API](https://airliftchallenge.com/chapters/API/essential_api.html)*. Documents key classes and methods you may need to interact with.
+* *[Solutions](https://airliftchallenge.com/chapters/ch6_solutions/main.html)*. Provides some background on previous solutions to the airlift and other related problems.
+* *[Simulator Code Documentation](https://airliftchallenge.com/chapters/API/environment.html)*. Although you do not need to understand the internals of the simulator to write a solution, it could help with debugging.
 
 ## 3) Test your solution
 
@@ -84,7 +84,7 @@ $ python run_custom_scenario.py
 More information on parameterizing the scenarios can be found in [Generating Scenarios page](https://airlift-challenge.github.io/chapters/ch5_gen/main.html).
 
 ## 4) Submission
-Once you are finished with your solution code, you can produce a zip file archive and make a submission at the [competition platform on CodaLab](https://codalab.lisn.upsaclay.fr/competitions/0000).
+Once you are finished with your solution code, you can produce a zip file archive and make a submission at the [competition platform on CodaLab][codalab].
 Your submission should contain the following files: 
 
 **File/Directory** | **Description**
@@ -92,8 +92,11 @@ Your submission should contain the following files:
 [`postBuild`](postBuild) | Specify any additional commands that need to be run when building the Docker image.
 [`environment.yml`](environment.yml) | File containing the list of python packages you want to install for the submission to run. This should instantiate a conda environment named `airlift-solutions`.
 [`apt.txt`](apt.txt) | File containing the list of OS packages you want to install for submission to run.
-[`eval.sh`](evaluator) | **Submission entrypoint** - Use this as the entrypoint to run your code using the local evaluator.
+[`eval.sh`](eval.sh) | **Submission entrypoint** - Use this as the entrypoint to run your code using the local evaluator.
 
 
-Distribution Statement A: Approved for Public Release; Distribution Unlimited:
-Case Number: AFRL-2022-5074, CLEARED on 19 Oct 2022
+Distribution Statement A: Approved for Public Release; Distribution Unlimited: Case Number: AFRL-2022-5074, CLEARED on 19 Oct 2022
+
+
+[codalab]: https://codalab.lisn.upsaclay.fr/competitions/8335
+
