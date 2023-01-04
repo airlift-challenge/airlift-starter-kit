@@ -36,7 +36,7 @@ This can be done by commenting out the simulator pip requirement in [environment
 
 ## 2) Write your solution code
 
-We provide a [Solution class](https://airlift-challenge.github.io/chapters/API/essential_api.html#solutions) that you can extend to build your own solution.
+We provide a [Solution class](https://airlift-challenge.github.io/chapters/API/essential_api.html#solutions) that you can extend to build your own solution. Using this solution class is a requirement for your submission.
 You need to fill in two methods:
 1) *`reset`*. Resets the solution code in preparation for a new episode.
 2) *`policies`*. A method which takes in a set of observations for all agent and returns a set of actions for each.
