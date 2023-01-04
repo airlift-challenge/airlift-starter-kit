@@ -3,8 +3,8 @@ from airlift.envs import ActionHelper
 
 class MySolution(Solution):
     """
-    You are encouraged to utilize this class to submit your solutions. The primary solution algorithm will go inside the
-    policy function. It is not a requirement to utilize this approach.
+    Utilizing this class for your solution is required for your submission. The primary solution algorithm will go inside the
+    policy function.
     """
     def __init__(self):
         super().__init__()
