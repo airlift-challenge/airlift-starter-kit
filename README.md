@@ -92,7 +92,7 @@ Your submission should contain the following files:
 [`postBuild`](postBuild) | Specify any additional commands that need to be run when building the Docker image.
 [`environment.yml`](environment.yml) | File containing the list of python packages you want to install for the submission to run. This should instantiate a conda environment named `airlift-solutions`.
 [`apt.txt`](apt.txt) | File containing the list of OS packages you want to install for submission to run.
-[`eval.sh`](eval.sh) | **Submission entrypoint** - Use this as the entrypoint to run your code using the local evaluator.
+[`solution/mysolution.py`](solution/mysolution.py) | Contains your agent policy code.
 
 
 Distribution Statement A: Approved for Public Release; Distribution Unlimited: Case Number: AFRL-2022-5074, CLEARED on 19 Oct 2022
