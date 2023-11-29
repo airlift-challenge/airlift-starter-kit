@@ -58,11 +58,11 @@ For more information, you can view the following sections in the [documentation]
 Download the [test scenarios](https://airliftchallenge.com/scenarios/airlift_test_scenarios.zip) and unzip the contents into the `/scenarios` folder.
 Then, perform the evaluation by running:
 ```bash
-$ ./eval.sh
+$ python eval_solution.py
 ```
 Optionally, you may specify a different scenario folder by passing the folder name as a parameter:
 ```bash
-$ ./eval.sh scenariofolder
+$ python eval_solution.py --scenarios scenariofolder
 ```
 The test set is similar to the hidden scenarios that will be used for the final evaluation.
 
@@ -70,8 +70,13 @@ The evaluator will output two csv files:
 * *`reakdown_results.csv`.* Provides details regarding each episode.
 * *`results_summary.csv`.* Provides a summary of the overall evaluation and score.
 
-We also provide a set of simpler [development scenarios](https://airlift-challenge.github.io/scenarios/scenarios_dev.zip) for building and debugging your agent.
-You may build your own set of evaluation scenarios as well. See [Generating Scenarios page](https://airlift-challenge.github.io/chapters/ch5_gen/main.html) for more information.
+You can also run a single scenario for debugging purposes as follows:
+```bash
+$ python eval_solution.py --scenarios scenarios/Test_0/Level_0.pkl
+```
+The script will output two csv files:
+* *`env_info_TIMESTAMP.csv`.* Provides details regarding the episode.
+* *`metrics_TIMESTAMP.csv`.* Provides a summary of the metrics at each step.
 
 
 ### Run the solution with a custom-built environment
@@ -81,7 +86,15 @@ An example is provided in [run_custom_scenario.py](run_custom_scenario.py), whic
 ```bash
 $ python run_custom_scenario.py
 ```
-More information on parameterizing the scenarios can be found in [Generating Scenarios page](https://airlift-challenge.github.io/chapters/ch5_gen/main.html).
+The script will output two csv files the same as when evaluating a single scenario (see above).
+Example renderings can be seen on the [Generating Scenarios page](https://airlift-challenge.github.io/chapters/ch5_gen/main.html).
+
+
+### Run the solution using the Docker Evaluator 
+When you submit your code to CodaLab, it will run in a Docker evaluator in our competition server.
+To perform a more thorough test of your code in a server-like nevironment, you can use the [Docker Evaluator](https://github.com/airlift-challenge/DockerEvaluator).
+This evaluator mimics the official competition platform on CodaLab.
+See the [Docker Evaluator instructions](https://github.com/airlift-challenge/DockerEvaluator#readme) for more information.
 
 ## 4) Submission
 Once you are finished with your solution code, you can produce a zip file archive and make a submission at the [competition platform on CodaLab][codalab].
