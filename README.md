@@ -102,9 +102,8 @@ Your submission should contain the following files:
 
 **File/Directory** | **Description**
 --- | ---
-[`postBuild`](postBuild) | Specify any additional commands that need to be run when building the Docker image. The default postBuild only installs the [core "airlift" simulator package](https://github.com/airlift-challenge/airlift).
+[`postBuild`](postBuild) | Specify any additional commands that need to be run when building the Docker image. The default postBuild only installs the [core "airlift" simulator package](https://github.com/airlift-challenge/airlift). This is also where you would specify any apt packages. This has replaced the apt.txt file.
 [`environment.yml`](environment.yml) | File containing the list of python packages you want to install for the submission to run. This should instantiate a conda environment named `airlift-solutions`.
-[`apt.txt`](apt.txt) | File containing the list of OS packages you want to install for submission to run.
 [`solution/mysolution.py`](solution/mysolution.py) | Contains your agent policy code.
 
 
