@@ -55,7 +55,7 @@ For more information, you can view the following sections in the [documentation]
 ## 3) Test your solution
 
 ### Evaluate your solution against the test set
-Download the [test scenarios](https://airliftchallenge.com/scenarios/airlift_test_scenarios.zip) and unzip the contents into the `/scenarios` folder.
+Download the [test scenarios](https://airliftchallenge.com/scenarios/airlift_test_scenarios.zip) and unzip the contents into the `scenarios` folder.
 Then, perform the evaluation by running:
 ```bash
 $ python eval_solution.py
