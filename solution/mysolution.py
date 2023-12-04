@@ -16,7 +16,7 @@ class MySolution(Solution):
         # Create an action helper using our random number generator
         self._action_helper = ActionHelper(self._np_random)
 
-    def policies(self, obs, dones):
+    def policies(self, obs, dones, infos):
         # Use the acion helper to generate an action
         return self._action_helper.sample_valid_actions(obs)
 
