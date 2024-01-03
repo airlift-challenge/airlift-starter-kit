@@ -32,10 +32,14 @@ def write_results(env_info, step_metrics):
 @click.option('--render/--no-render',
               default=False,
               help='Render the episode (rendering only works when running a single pkl file)')
+@click.option('--render-sleep-time',
+              type=float,
+              default=0.1,
+              help='Delay in seconds between each step when rendering')
 @click.option('--render-mode',
               default="human",
               help='Render mode ("human" or "video")')
-def run_evaluation(scenarios, solution_seed, env_seed, render, render_mode):
+def run_evaluation(scenarios, solution_seed, env_seed, render, render_sleep_time, render_mode):
     """Evaluates solution against a set of scenario pkl files, or a single pkl file. csv files will be written with results."""
     if os.path.isdir(scenarios):
         doeval(scenarios, MySolution(), start_solution_seed=solution_seed)
@@ -47,6 +51,7 @@ def run_evaluation(scenarios, solution_seed, env_seed, render, render_mode):
                 solution=MySolution(),
                 solution_seed=solution_seed,
                 render=render,
+                render_sleep_time=render_sleep_time,
                 render_mode=render_mode)
         write_results(env_info, step_metrics)
     else:
