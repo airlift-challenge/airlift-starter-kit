@@ -13,9 +13,14 @@ def write_results(env_info, step_metrics):
         csvwriter.writerow(env_info)
     with open("metrics_{}.csv".format(timestr), 'w', newline='') as file:
         csvwriter = csv.writer(file)
-        csvwriter.writerow(("step",) + step_metrics[0]._fields)
-        for step, metric in enumerate(step_metrics):
-            csvwriter.writerow((step,) + metric)
+        if isinstance(step_metrics, list):
+            csvwriter.writerow(("step",) + step_metrics[0]._fields)
+            for step, metric in enumerate(step_metrics):
+                csvwriter.writerow((step,) + metric)
+        else:
+            csvwriter.writerow(step_metrics._fields)
+            csvwriter.writerow(step_metrics)
+
 
 @click.command()
 @click.option('--scenarios',
@@ -39,12 +44,15 @@ def write_results(env_info, step_metrics):
 @click.option('--render-mode',
               default="human",
               help='Render mode ("human" or "video")')
-def run_evaluation(scenarios, solution_seed, env_seed, render, render_sleep_time, render_mode):
+@click.option('--capture-step-metrics/--no-capture-step-metrics',
+              default=False,
+              help='Capture metrics for each step (only works wehn running a single pkl file)')
+def run_evaluation(scenarios, solution_seed, env_seed, render, render_sleep_time, render_mode, capture_step_metrics):
     """Evaluates solution against a set of scenario pkl files, or a single pkl file. csv files will be written with results."""
     if os.path.isdir(scenarios):
         doeval(scenarios, MySolution(), start_solution_seed=solution_seed)
     elif os.path.isfile(scenarios):
-        env_info, metrics, time_taken, total_solution_time, step_metrics = \
+        returnval = \
             doeval_single_episode(
                 test_pkl_file=scenarios,
                 env_seed=env_seed,
@@ -52,8 +60,14 @@ def run_evaluation(scenarios, solution_seed, env_seed, render, render_sleep_time
                 solution_seed=solution_seed,
                 render=render,
                 render_sleep_time=render_sleep_time,
-                render_mode=render_mode)
-        write_results(env_info, step_metrics)
+                render_mode=render_mode,
+                capture_step_metrics=capture_step_metrics)
+        env_info = returnval[0]
+        if capture_step_metrics:
+            metrics = returnval[4]
+        else:
+            metrics = returnval[1]
+        write_results(env_info, metrics)
     else:
         raise Exception("Scenarios not found")
 
